@@ -16,8 +16,8 @@ export class ShellScriptDocumentSymbolProvider implements vscode.DocumentSymbolP
         const matchedList = this.matchAll(this.pattern, text);
 
         return matchedList.map((matched) => {
-            const type = matched[1];
-            const name = matched[2];
+            const type = matched[3];
+            const name = matched[4];
             const kind = tokenToKind[type];
 
             const position = document.positionAt(matched.index || 0);
@@ -34,19 +34,20 @@ export class ShellScriptDocumentSymbolProvider implements vscode.DocumentSymbolP
     private get tokenToKind(): { [name: string]: vscode.SymbolKind; } {
         return {
             '{': vscode.SymbolKind.Module,
+            '()': vscode.SymbolKind.Module,
             '(': vscode.SymbolKind.Interface,
-            'MARK:': vscode.SymbolKind.Constructor,
-            'NOTE:': vscode.SymbolKind.Field,
-            'REVIEW:': vscode.SymbolKind.Constant,
-            'TODO:': vscode.SymbolKind.TypeParameter,
-            'FIXME:': vscode.SymbolKind.Event,
+            'MARK': vscode.SymbolKind.Constructor,
+            'NOTE': vscode.SymbolKind.Field,
+            'REVIEW': vscode.SymbolKind.Constant,
+            'TODO': vscode.SymbolKind.TypeParameter,
+            'FIXME': vscode.SymbolKind.Event,
             '!!!': vscode.SymbolKind.Event,
             '???': vscode.SymbolKind.Enum
         };
     }
 
     private get pattern() {
-        return /^([ \t]*|[ \t]*\#*[ \t]*)((function[ \t]+)?([_A-Za-z][_A-Za-z0-9]+)[ \t]*(\(\))?[ \t*]*([{(])[^(]?|MARK:.*|NOTE:.*|REVIEW:.*|TODO:.*|FIXME:.*|!!!:.*|\?\?\?:.*)/gm;
+        return /^([ \t]*|[ \t]*\#+[ \t]+)(function[ \t]+)?(MARK|NOTE|REVIEW|TODO|FIXME|!!!|\?\?\?)?([_A-Za-z][_A-Za-z0-9]+)[ \t]*(\(\))?[ \t*]*([{(])[^(]?/gm;
     }
 
     private matchAll(
