@@ -1,4 +1,4 @@
-# Shell script function and landmark outline 0.9.0
+# Shell script function and landmark outline 1.0.0
 
 ## `shell-function-landmark-outline`
 

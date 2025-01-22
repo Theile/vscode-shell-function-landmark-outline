@@ -16,8 +16,8 @@ export class ShellScriptDocumentSymbolProvider implements vscode.DocumentSymbolP
         const matchedList = this.matchAll(this.pattern, text);
 
         return matchedList.map((matched) => {
-			const type = matched[8]+matched[10];
-			const name = matched[6]+matched[12];
+			const type = matched[8] ?? matched[10];
+			const name = matched[6] ?? matched[12];
             const kind = tokenToKind[type];
 
             const position = document.positionAt(matched.index || 0);
