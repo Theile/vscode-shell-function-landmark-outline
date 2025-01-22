@@ -4,69 +4,26 @@
 
 Provide outline view for Shell script functions and landmarks.
 
-Regex:
-```
-^([ \t]*)(function[ \t]+)?([_A-Za-z][_A-Za-z0-9]+)[ \t]*(\(\))?[ \t*]*([{(])[^(]?
+### Function
 
-'^([ \t]*|[ \t]*\#*[ \t]*)((function[ \t]+)?([_A-Za-z][_A-Za-z0-9]+)[ \t]*(\(\))?[ \t*]*([{(])[^(]?|MARK:.*|NOTE:.*|REVIEW:.*|TODO:.*|FIXME:.*|!!!:.*|\?\?\?:.*)'
- 
-'^([ \t]*|[ \t]*\#*[ \t]*)((function[ \t]+)?([_A-Za-z][_A-Za-z0-9]+)[ \t]*(\(\))?[ \t*]*([{])[^(]?|MARK:.*|NOTE:.*|REVIEW:.*|TODO:.*|FIXME:.*|!!!:.*|\?\?\?:.*)'
-
-
-^([ \t]*|[ \t]*\#+[ \t]+)(function[ \t]+)?(MARK|NOTE|REVIEW|TODO|FIXME|!!!|\?\?\?)?(:[ \t]*)?([_A-Za-z][_A-Za-z0-9]+)[ \t]*(\(\))?[ \t*]*([{(])[^(]?
-
-type = matched[8]+matched[10]
-name = matched[6]+matched[12]
-^(([ \t]*)(function[ \t]+)?()()([_A-Za-z][_A-Za-z0-9]+)[ \t]*(\(\))+[ \t*]*([{\(])[^(]?|([ \t]*[#]+[ \t]+)(MARK|NOTE|REVIEW|TODO|FIXME|!!!|\?\?\?)(:[ \t]*)(.*)()())
-
-        	const test = matched[8];
-        	if(test) {
-				const type = matched[8];
-				const name = matched[6];
-			} else {
-				const type = matched[10];
-				const name = matched[12];
-			}
-
-        	if(matched[8]) {
-				const type = matched[8];
-				const name = matched[6];
-			} else {
-				const type = matched[10];
-				const name = matched[12];
-			}
-
-	
-        	if(matched[8] === undefined) {
-				const type = matched[10];
-				const name = matched[12];
-			} else {
-				const type = matched[8];
-				const name = matched[6];
-			}
-
-
-			const type = matched[8] ?? const type = matched[10];
-			const name = matched[6] ?? const name = matched[12];
-
-
-
-```
+Whenever a function is defined in the script it will be placed in the outline.
 
 ### Landmarks
 
-Landmarks are shell script comments that begin with a certain landmark identifier:
+Landmarks are shell script comments that begin with a certain landmark identifier. When one of the below landmarks are used they will appear in the outline with an icon:
 
-- `# MARK:` Shown as
-- `# NOTE:` Shown as
-- `# REVIEW:` Shown as
-- `# TODO:` Shown as
-- `# FIXME:` Shown as
-- `# !!!:` Shown as
-- `# ???:` Shown as
+- `# MARK:`
+- `# NOTE:`
+- `# REVIEW:`
+- `# TODO:`
+- `# FIXME:`
+- `# !!!:`
+- `# ???:`
+
+![screenshot1](images/screenshot.png)
+
+I figured out to improve the regex and make it more advanced in selecting icons for the various landmarks. Had to use a later version of typescript.
 
 **Based on shell-function-outline v1.2.2 by jannek@aalto 2021**
 **Based on perl-outline v0.0.7 by hitode909.**
 **They deserves all credit.**
-
-![screenshot1](images/screenshot.png)
