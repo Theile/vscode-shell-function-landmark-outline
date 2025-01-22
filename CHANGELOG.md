@@ -1,10 +1,10 @@
 # Change Log
-All notable changes to the "perl-outline" extension will be documented in this file.
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
+All notable changes to the "shell-function-landmark-outline" extension will be documented in this file.
 
-## 0.0.2
-- Fixed [#1](https://github.com/hitode909/vscode-perl-outline/issues/1): Outline includes text in comments.
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## 0.0.1
+## [0.9.0] - 2025-01-22
+
 - Initial release

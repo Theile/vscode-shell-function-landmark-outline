@@ -1,14 +1,14 @@
 import * as vscode from 'vscode';
 
-import { PerlDocumentSymbolProvider } from './documentSymbolProvider';
+import { ShellScriptDocumentSymbolProvider } from './documentSymbolProvider';
 
 export function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(
 		vscode.languages.registerDocumentSymbolProvider(
 			[
-				{ language: 'perl' },
+				{ language: 'shellscript' },
 			],
-			new PerlDocumentSymbolProvider()
+			new ShellScriptDocumentSymbolProvider()
 		)
 	);
 }

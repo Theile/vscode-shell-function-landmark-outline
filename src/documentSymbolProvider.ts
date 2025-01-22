@@ -4,7 +4,7 @@ import * as vscode from 'vscode';
 /* respect https://github.com/Gimly/vscode-fortran/blob/229cddce53a2ea0b93032619efeef26376cd0d2c/src/documentSymbolProvider.ts
            https://github.com/Microsoft/vscode/blob/34ba2e2fbfd196e2d6db5a4db0e42d03a97c655e/extensions/markdown-language-features/src/features/documentLinkProvider.ts
  */
-export class PerlDocumentSymbolProvider implements vscode.DocumentSymbolProvider {
+export class ShellScriptDocumentSymbolProvider implements vscode.DocumentSymbolProvider {
 
     public provideDocumentSymbols(
         document: vscode.TextDocument,
@@ -30,17 +30,23 @@ export class PerlDocumentSymbolProvider implements vscode.DocumentSymbolProvider
         });
     }
 
+    // TODO: get the right icons
     private get tokenToKind(): { [name: string]: vscode.SymbolKind; } {
         return {
-            package: vscode.SymbolKind.Class,
-            sub: vscode.SymbolKind.Function,
-            subtest: vscode.SymbolKind.Function,
+            '{': vscode.SymbolKind.Module,
+            '(': vscode.SymbolKind.Interface,
+            'MARK:': vscode.SymbolKind.Constructor,
+            'NOTE:': vscode.SymbolKind.Field,
+            'REVIEW:': vscode.SymbolKind.Constant,
+            'TODO:': vscode.SymbolKind.TypeParameter,
+            'FIXME:': vscode.SymbolKind.Event,
+            '!!!': vscode.SymbolKind.Event,
+            '???': vscode.SymbolKind.Enum
         };
     }
 
-    // TODO: replace with better regexp
     private get pattern() {
-        return /(^package|\bsub|\bsubtest)\b +([^ ;\r\n'"{]+|(['"].+['"])+)/gm;
+        return /^([ \t]*|[ \t]*\#*[ \t]*)((function[ \t]+)?([_A-Za-z][_A-Za-z0-9]+)[ \t]*(\(\))?[ \t*]*([{(])[^(]?|MARK:.*|NOTE:.*|REVIEW:.*|TODO:.*|FIXME:.*|!!!:.*|\?\?\?:.*)/gm;
     }
 
     private matchAll(
