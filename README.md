@@ -1,4 +1,4 @@
-# Shell script function and landmark outline
+# Shell script function and landmark outline 0.9.0
 
 ## `shell-function-landmark-outline`
 
@@ -11,6 +11,14 @@ Regex:
 '^([ \t]*|[ \t]*\#*[ \t]*)((function[ \t]+)?([_A-Za-z][_A-Za-z0-9]+)[ \t]*(\(\))?[ \t*]*([{(])[^(]?|MARK:.*|NOTE:.*|REVIEW:.*|TODO:.*|FIXME:.*|!!!:.*|\?\?\?:.*)'
  
 '^([ \t]*|[ \t]*\#*[ \t]*)((function[ \t]+)?([_A-Za-z][_A-Za-z0-9]+)[ \t]*(\(\))?[ \t*]*([{])[^(]?|MARK:.*|NOTE:.*|REVIEW:.*|TODO:.*|FIXME:.*|!!!:.*|\?\?\?:.*)'
+
+
+^([ \t]*|[ \t]*\#+[ \t]+)(function[ \t]+)?(MARK|NOTE|REVIEW|TODO|FIXME|!!!|\?\?\?)?(:[ \t]*)?([_A-Za-z][_A-Za-z0-9]+)[ \t]*(\(\))?[ \t*]*([{(])[^(]?
+
+type = matched[8]+matched[10]
+name = matched[6]+matched[12]
+^(([ \t]*)(function[ \t]+)?()()([_A-Za-z][_A-Za-z0-9]+)[ \t]*(\(\))+[ \t*]*([{\(])[^(]?|([ \t]*[#]+[ \t]+)(MARK|NOTE|REVIEW|TODO|FIXME|!!!|\?\?\?)(:[ \t]*)(.*)()())
+
 ```
 
 ### Landmarks
