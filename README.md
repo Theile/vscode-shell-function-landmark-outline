@@ -19,6 +19,15 @@ type = matched[8]+matched[10]
 name = matched[6]+matched[12]
 ^(([ \t]*)(function[ \t]+)?()()([_A-Za-z][_A-Za-z0-9]+)[ \t]*(\(\))+[ \t*]*([{\(])[^(]?|([ \t]*[#]+[ \t]+)(MARK|NOTE|REVIEW|TODO|FIXME|!!!|\?\?\?)(:[ \t]*)(.*)()())
 
+        	const test = matched[8];
+        	if(test) {
+				const type = matched[8];
+				const name = matched[6];
+			} else {
+				const type = matched[10];
+				const name = matched[12];
+			}
+
         	if(matched[8]) {
 				const type = matched[8];
 				const name = matched[6];
