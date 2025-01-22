@@ -16,8 +16,14 @@ export class ShellScriptDocumentSymbolProvider implements vscode.DocumentSymbolP
         const matchedList = this.matchAll(this.pattern, text);
 
         return matchedList.map((matched) => {
-            const type = matched[8]+matched[10];
-            const name = matched[6]+matched[12];
+        	const test = matched[8];
+        	if(test) {
+				const type = matched[8];
+				const name = matched[6];
+			} else {
+				const type = matched[10];
+				const name = matched[12];
+			}
             const kind = tokenToKind[type];
 
             const position = document.positionAt(matched.index || 0);
@@ -35,11 +41,11 @@ export class ShellScriptDocumentSymbolProvider implements vscode.DocumentSymbolP
         return {
             '{': vscode.SymbolKind.Module,
             '(': vscode.SymbolKind.Interface,
-            MARK: vscode.SymbolKind.Constructor,
-            NOTE: vscode.SymbolKind.Field,
-            REVIEW: vscode.SymbolKind.Constant,
-            TODO: vscode.SymbolKind.TypeParameter,
-            FIXME: vscode.SymbolKind.Event,
+            'MARK': vscode.SymbolKind.Constructor,
+            'NOTE': vscode.SymbolKind.Field,
+            'REVIEW': vscode.SymbolKind.Constant,
+            'TODO': vscode.SymbolKind.TypeParameter,
+            'FIXME': vscode.SymbolKind.Event,
             '!!!': vscode.SymbolKind.Event,
             '???': vscode.SymbolKind.Enum
         };
