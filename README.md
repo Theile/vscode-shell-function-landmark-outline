@@ -1,29 +1,40 @@
-# Shell script function and landmark outline 1.0.0
+# Shell script functions and tags outline 1.0.0
 
-## `shell-function-landmark-outline`
+## `shell-function-tag-outline`
 
-Provide outline view for Shell script functions and landmarks.
+Provide outline view for Shell script functions and tags.
 
-### Function
+### Functions
 
 Whenever a function is defined in the script it will be placed in the outline.
 
-### Landmarks
+### Comment tags
 
-Landmarks are shell script comments that begin with a certain landmark identifier. When one of the below landmarks are used they will appear in the outline with an icon:
+These special comments begin with a certain *tag* identifier. When one of the below *tags* are used they will appear in the outline with an icon:
 
 - `# MARK:`
 - `# NOTE:`
 - `# REVIEW:`
 - `# TODO:`
 - `# FIXME:`
+- `# HACK:`
+- `# BUG:`
+- `# OPTIMIZE:`
 - `# !!!:`
 - `# ???:`
 
+
 ![screenshot1](images/screenshot.png)
 
-I figured out to improve the regex and make it more advanced in selecting icons for the various landmarks. Had to use a later version of typescript.
 
 **Based on shell-function-outline v1.2.2 by jannek@aalto 2021**
 **Based on perl-outline v0.0.7 by hitode909.**
-**They deserves all credit.**
+**They deserves much credit.**
+
+## Future idea
+
+Some editors handle this comment tag dash with a separator before the line:
+
+- `# MARK: - Headline notation`
+
+Could be interesting if that could be implemented.

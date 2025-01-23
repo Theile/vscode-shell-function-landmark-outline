@@ -1,12 +1,13 @@
 {
-    "name": "shell-function-landmark-outline",
-    "displayName": "Shell script function and landmark outline",
-    "description": "Provide outline view for Shell script functions and landmarks.",
+    "name": "shell-function-tag-outline",
+    "displayName": "Shell script functions and tags outline",
+    "description": "Provide outline view for Shell script functions and comment tags.",
     "version": "1.0.0",
     "keywords": [
         "outline",
         "shell",
         "shellscript",
+        "tag",
         "zsh",
         "ksh",
         "bash",
@@ -15,10 +16,10 @@
     "publisher": "Theile",
     "repository": {
         "type": "git",
-        "url": "https://github.com/Theile/vscode-shell-function-landmark-outline"
+        "url": "https://github.com/Theile/vscode-shell-function-tag-outline"
     },
     "icon": "icon.png",
-    "homepage": "https://github.com/Theile/vscode-shell-function-landmark-outline",
+    "homepage": "https://github.com/Theile/vscode-shell-function-tag-outline",
     "engines": {
         "vscode": "^1.96.0"
     },

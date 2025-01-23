@@ -37,16 +37,19 @@ export class ShellScriptDocumentSymbolProvider implements vscode.DocumentSymbolP
             '(': vscode.SymbolKind.Interface,
             'MARK': vscode.SymbolKind.Constructor,
             'NOTE': vscode.SymbolKind.Field,
-            'REVIEW': vscode.SymbolKind.Constant,
-            'TODO': vscode.SymbolKind.TypeParameter,
+            'REVIEW': vscode.SymbolKind.TypeParameter,
+            'TODO': vscode.SymbolKind.Constant,
             'FIXME': vscode.SymbolKind.Event,
+            'HACK': vscode.SymbolKind.Event,
+            'BUG': vscode.SymbolKind.Null,
+            'OPTIMIZE': vscode.SymbolKind.EnumMember,
             '!!!': vscode.SymbolKind.Event,
             '???': vscode.SymbolKind.Enum
         };
     }
 
     private get pattern() {
-        return /^(([ \t]*)(function[ \t]+)?()()([_A-Za-z][_A-Za-z0-9]+)[ \t]*(\(\))+[ \t*]*([{\(])[^(]?|([ \t]*[#]+[ \t]+)(MARK|NOTE|REVIEW|TODO|FIXME|!!!|\?\?\?)(:[ \t]*)(.*)()())/gm;
+        return /^(([ \t]*)(function[ \t]+)?()()([_A-Za-z][_A-Za-z0-9]+)[ \t]*(\(\))+[ \t*]*([{\(])[^(]?|([ \t]*[#]+[ \t]+)(MARK|NOTE|REVIEW|TODO|FIXME|HACK|BUG|OPTIMIZE|!!!|\?\?\?)(:[ \t]*)(.*)()())/gm;
     }
 
     private matchAll(
