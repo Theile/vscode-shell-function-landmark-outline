@@ -1,72 +1,40 @@
-# Shell script function and landmark outline 0.9.0
+# Shell script functions and tags outline 1.0.0
 
-## `shell-function-landmark-outline`
+## `shell-function-tag-outline`
 
-Provide outline view for Shell script functions and landmarks.
+Provide outline view for Shell script functions and tags.
 
-Regex:
-```
-^([ \t]*)(function[ \t]+)?([_A-Za-z][_A-Za-z0-9]+)[ \t]*(\(\))?[ \t*]*([{(])[^(]?
+### Functions
 
-'^([ \t]*|[ \t]*\#*[ \t]*)((function[ \t]+)?([_A-Za-z][_A-Za-z0-9]+)[ \t]*(\(\))?[ \t*]*([{(])[^(]?|MARK:.*|NOTE:.*|REVIEW:.*|TODO:.*|FIXME:.*|!!!:.*|\?\?\?:.*)'
- 
-'^([ \t]*|[ \t]*\#*[ \t]*)((function[ \t]+)?([_A-Za-z][_A-Za-z0-9]+)[ \t]*(\(\))?[ \t*]*([{])[^(]?|MARK:.*|NOTE:.*|REVIEW:.*|TODO:.*|FIXME:.*|!!!:.*|\?\?\?:.*)'
+Whenever a function is defined in the script it will be placed in the outline.
 
+### Comment tags
 
-^([ \t]*|[ \t]*\#+[ \t]+)(function[ \t]+)?(MARK|NOTE|REVIEW|TODO|FIXME|!!!|\?\?\?)?(:[ \t]*)?([_A-Za-z][_A-Za-z0-9]+)[ \t]*(\(\))?[ \t*]*([{(])[^(]?
+These special comments begin with a certain *tag* identifier. When one of the below *tags* are used they will appear in the outline with an icon:
 
-type = matched[8]+matched[10]
-name = matched[6]+matched[12]
-^(([ \t]*)(function[ \t]+)?()()([_A-Za-z][_A-Za-z0-9]+)[ \t]*(\(\))+[ \t*]*([{\(])[^(]?|([ \t]*[#]+[ \t]+)(MARK|NOTE|REVIEW|TODO|FIXME|!!!|\?\?\?)(:[ \t]*)(.*)()())
-
-        	const test = matched[8];
-        	if(test) {
-				const type = matched[8];
-				const name = matched[6];
-			} else {
-				const type = matched[10];
-				const name = matched[12];
-			}
-
-        	if(matched[8]) {
-				const type = matched[8];
-				const name = matched[6];
-			} else {
-				const type = matched[10];
-				const name = matched[12];
-			}
-
-	
-        	if(matched[8] === undefined) {
-				const type = matched[10];
-				const name = matched[12];
-			} else {
-				const type = matched[8];
-				const name = matched[6];
-			}
+- `# MARK:`
+- `# NOTE:`
+- `# REVIEW:`
+- `# TODO:`
+- `# FIXME:`
+- `# HACK:`
+- `# BUG:`
+- `# OPTIMIZE:`
+- `# !!!:`
+- `# ???:`
 
 
-			const type = matched[8] ?? const type = matched[10];
-			const name = matched[6] ?? const name = matched[12];
+![screenshot1](images/screenshot.png)
 
-
-
-```
-
-### Landmarks
-
-Landmarks are shell script comments that begin with a certain landmark identifier:
-
-- `# MARK:` Shown as
-- `# NOTE:` Shown as
-- `# REVIEW:` Shown as
-- `# TODO:` Shown as
-- `# FIXME:` Shown as
-- `# !!!:` Shown as
-- `# ???:` Shown as
 
 **Based on shell-function-outline v1.2.2 by jannek@aalto 2021**
 **Based on perl-outline v0.0.7 by hitode909.**
-**They deserves all credit.**
+**They deserves much credit.**
 
-![screenshot1](images/screenshot.png)
+## Future idea
+
+Some editors handle this comment tag dash with a separator before the line:
+
+- `# MARK: - Headline notation`
+
+Could be interesting if that could be implemented.

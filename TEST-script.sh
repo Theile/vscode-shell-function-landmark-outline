@@ -11,19 +11,24 @@
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 # NOTE: Calculated constants with checks
 
+# OPTIMIZE: Runs slow, can it be faster?
 printlog() { # 1: Argument to print
     timestamp=$(date +%F\ %T)
     # ???: Is this working?
     echo "$timestamp : [${funcstack[2]}] $1"
 }
 
+# MARK: - Headline notation
+# ERROR: Not really a valid function
 function testing () (
-    # Test function
+    # HACK: Fixed value
+    
     # FIXME: Not done with this function
 )
 
+# BUG: Needs fixing
 function extra_test () {
-    # TODO: Also needed
+    # TODO: Better ending
 }
 # TODO: Also needed functionality
 # !!!: Important addition
