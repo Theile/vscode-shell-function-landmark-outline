@@ -2,6 +2,12 @@
 
 ## `shell-function-tag-outline`
 
+[![GitHub release](https://img.shields.io/github/release/Theile/vscode-shell-function-tag-outline.svg?style=plastic)](https://github.com/Theile/vscode-shell-function-tag-outline/releases)
+[![GitHub license](https://img.shields.io/github/license/Theile/vscode-shell-function-tag-outline.svg?style=plastic)](https://github.com/Theile/vscode-shell-function-tag-outline/blob/master/LICENSE.md)
+[![GitHub stars](https://img.shields.io/github/stars/Theile/vscode-shell-function-tag-outline.svg?style=plastic)](https://github.com/Theile/vscode-shell-function-tag-outline/stargazers)
+[![GitHub issues](https://img.shields.io/github/forks/Theile/vscode-shell-function-tag-outline.svg?style=plastic)](https://github.com/Theile/vscode-shell-function-tag-outline/forks)
+[![GitHub issues](https://img.shields.io/github/issues/Theile/vscode-shell-function-tag-outline.svg?style=plastic)](https://github.com/Theile/vscode-shell-function-tag-outline/issues)
+
 Provide outline view for Shell script functions and tags.
 
 ### Functions
